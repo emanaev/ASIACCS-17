@@ -8,7 +8,16 @@
 #define DEMO_SECURITY_KEY "adfaksdfjklasdjflajsdiofjasodf"
 
 const std::string kDemoServerIP[] = {
-	"127.0.0.1"
+	"node1",
+	"node2",
+	"node3",
+	"node4",
+	"node5",
+	"node6",
+	"node7",
+	"node8",
+	"node9",
+	"node10"
 };
 const uint16_t kDemoServerPort[] = { 9090, 9090, 9090, 9090, 9090, 9090, 9090, 9090, 9090, 9090 };
 const uint16_t kRedisPort[] = { 6379, 6379, 6379, 6379, 6379, 6379, 6379, 6379, 6379, 6379 };

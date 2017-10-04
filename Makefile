@@ -4,7 +4,6 @@ all:
 	cd Client && make clean && make
 	cd Proxy && make clean && make
 	cd Client && chmod 751 *.sh
-	ntpdate time.nist.gov
 
 clean:
 	cd Caravel && make clean
