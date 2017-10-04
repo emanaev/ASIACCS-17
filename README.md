@@ -38,9 +38,9 @@ Note: Docker image includes all required libraries
  Build Docker image for EncKV:
 
 ```shell
- * git clone https://github.com/emanaev/encKV.git
- * cd encKV
- * ./build.sh
+git clone https://github.com/emanaev/encKV.git
+cd encKV
+./build.sh
 ```
 
 # USAGE
@@ -48,18 +48,18 @@ Note: Docker image includes all required libraries
  Start 10 docker containers with EncKV nodes
  
 ```shell
- * ./start.sh
+./start.sh
 ```
 
 Run some tests
 
 ```shell
- * ./test.sh
+./test.sh
 ```
 
 Stop EncKVnodes
 ```shell
- * ./stop.sh
+./stop.sh
 ```
 
 # ADVANCED USAGE
@@ -67,8 +67,8 @@ Stop EncKVnodes
 Log into shell
 
 ```shell
- * docker run -it --rm --network enckv enckv basj
- * cd encKV/Client
+docker run -it --rm --network enckv enckv basj
+cd encKV/Client
 ```
 
 Use scripts
