@@ -21,7 +21,6 @@ We implement the EncKV prototype on a Redis cluster, and conduct performance eva
 Xingliang Yuan, Yu Guo, Xinyu Wang, Cong Wang, Baochun Li, and Xiaohua Jia, "EncKV: An Encrypted Key-value Store with Rich Queries", In the 12th ACM Asia Conference on Computer and Communications Security (AISACCS'17).
 
 # REQUIREMENTS
-
 Recommended Environment: Ubuntu 16.04 LTS with gcc version 4.8.4.
 
 This software requires the following libraries:
@@ -32,97 +31,54 @@ This software requires the following libraries:
  * Redis (http://download.redis.io/releases/redis-3.2.0.tar.gz)
  * Redis3m (https://github.com/luca3m/redis3m)
 
+Note: Docker image includes all required libraries
+
 # INSTALLATION
 
-Environment setup:
+ Build Docker image for EncKV:
 
 ```shell
- * apt-get update
- * apt-get install gcc g++ libssl-dev libgmp-dev make cmake libboost-dev libboost-test-dev libboost-program-options-dev libboost-system-dev libboost-filesystem-dev libevent-dev automake libtool flex bison pkg-config libglib2.0-dev git
- * apt-get install libmsgpack-dev libboost-thread-dev libboost-date-time-dev libboost-test-dev libboost-filesystem-dev libboost-system-dev libhiredis-dev cmake build-essential libboost-regex-dev
-```
-
-Thrift installation:
-
-You can find the latest HTTP link on https://thrift.apache.org/
-
-```shell
- * wget http://archive.apache.org/dist/thrift/0.9.2/thrift-0.9.2.tar.gz
- * tar zxvf thrift-0.9.2.tar.gz
- * cd thrift-0.9.2
- * ./configure
- * make
- * make install
-```
-
-Redis installation:
-
-```shell
- * wget http://download.redis.io/releases/redis-3.2.0.tar.gz
- * tar zxvf redis-3.2.0.tar.gz
- * cd redis-3.2.0
- * make
- * make install
- ```
-
-redis3m (a C++ Redis client) installation:
-
-```shell
- * git clone https://github.com/luca3m/redis3m
- * cd redis3m
- * cmake .
- * make
- * make install
-```
-
-# CONFIGURATION
-
-
- * Configure the Redis
-	
-	Start the redis server listening on port 6379.
-
-	```shell
-	* redis-server &
-	```
-
- * Configure the environment
-
-	Add the libraries paths to $LD_LIBRARY_PATH.
-
-	```shell
-	* export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-	```
- * Configure IPs and Ports
-
-	Input IP and PORT of each machine to an configuration file in /BlindDB/src/Client/DemoConfig.h
-
-	```cpp
-	#define DEMO_SECURITY_KEY "adfaksdfjklasdjflajsdiofjasodf"
-	const std::string kDemoServerIP[] = { "10.4.0.5", "10.4.0.6", "10.4.0.9", "10.4.0.10", "10.4.0.11", "10.4.0.12", "10.4.0.13", "10.4.0.14", "10.4.0.15", "10.4.0.16" };
-	const uint16_t kDemoServerPort[] = { 9090, 9090, 9090, 9090, 9090, 9090, 9090, 9090, 9090, 9090 };
-	const uint16_t kRedisPort[] = { 6379, 6379, 6379, 6379, 6379, 6379, 6379, 6379, 6379, 6379 };
-
-	```
-
-# COMPILING
-
- Compile EncKV:
-
-```shell
- * git clone https://github.com/CongGroup/ASIACCS-17.git
- * cd ASIACCS-17
- * make
+ * git clone https://github.com/emanaev/encKV.git
+ * cd encKV
+ * ./build.sh
 ```
 
 # USAGE
 
-  * Test_insert
-	
+ Start 10 docker containers with EncKV nodes
+ 
+```shell
+ * ./start.sh
+```
+
+Run some tests
+
+```shell
+ * ./test.sh
+```
+
+Stop EncKVnodes
+```shell
+ * ./stop.sh
+```
+
+# ADVANCED USAGE
+
+Log into shell
+
+```shell
+ * docker run -it --rm --network enckv enckv basj
+ * cd encKV/Client
+```
+
+Use scripts
+
+  * Test_insert.sh
+
 	Scripts that insert test data into EncKV.
 
 	```
-	Usage :	ASIACCS-17/Client/Test_insert [DataNodeNum] [BegNum] [EndNum] [EqualIndexVersion] [OrderIndex] [BlockSizeInBit] [ModNum]
+	Usage :	encKV/Client/Test_insert [DataNodeNum] [BegNum] [EndNum] [EqualIndexVersion] [OrderIndex] [BlockSizeInBit] [ModNum]
 
 	- [DataNodeNum]: the number of nodes.
 	- [BegNum]: the begin of random insertion number.
