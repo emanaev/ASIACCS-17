@@ -21,21 +21,12 @@ We implement the EncKV prototype on a Redis cluster, and conduct performance eva
 Xingliang Yuan, Yu Guo, Xinyu Wang, Cong Wang, Baochun Li, and Xiaohua Jia, "EncKV: An Encrypted Key-value Store with Rich Queries", In the 12th ACM Asia Conference on Computer and Communications Security (AISACCS'17). [Link](https://www.google.ru/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjfiqy7p9nWAhUMIJoKHds3AVQQFggmMAA&url=http%3A%2F%2Fiqua.ece.toronto.edu%2Fpapers%2Fxyuan-asiaccs17.pdf&usg=AOvVaw2pBoA4qoNt41giSL6mAzYf)
 
 # REQUIREMENTS
-Recommended Environment: Ubuntu 16.04 LTS with gcc version 4.8.4.
 
-This software requires the following libraries:
-
- * OpenSSL (https://www.openssl.org/source/openssl-1.0.2a.tar.gz)
- * Thrift (http://archive.apache.org/dist/thrift/0.9.2/)
- * boost C++ library (http://sourceforge.net/projects/boost/files/boost/1.58.0/boost_1_58_0.tar.gz)
- * Redis (http://download.redis.io/releases/redis-3.2.0.tar.gz)
- * Redis3m (https://github.com/luca3m/redis3m)
-
-Note: Docker image includes all required libraries
+Recommended Environment: Docker 1.2 or higher
 
 # INSTALLATION
 
- Build Docker image for EncKV:
+Build Docker image for EncKV:
 
 ```shell
 git clone https://github.com/emanaev/encKV.git
@@ -45,7 +36,7 @@ cd encKV
 
 # USAGE
 
- Start 10 docker containers with EncKV nodes
+ Start 10 Docker containers with EncKV nodes
  
 ```shell
 ./start.sh
@@ -264,10 +255,3 @@ Use scripts
 
    ```
  
-	
-# MAINTAINER
-
-  - Xinyu Wang, City University of Hong Kong, xinyucs@gmail.com
-  - Xingliang Yuan, City University of Hong Kong, xyuancs@gmail.com
-  - Mengyu Yao, City University of Hong Kong, mengycs@gmail.com
-  - Yu Guo, City University of Hong Kong, y.guo@my.cityu.edu.hk
