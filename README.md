@@ -18,7 +18,7 @@ We implement the EncKV prototype on a Redis cluster, and conduct performance eva
 
 # PUBLICATION
 
-Xingliang Yuan, Yu Guo, Xinyu Wang, Cong Wang, Baochun Li, and Xiaohua Jia, "EncKV: An Encrypted Key-value Store with Rich Queries", In the 12th ACM Asia Conference on Computer and Communications Security (AISACCS'17).
+Xingliang Yuan, Yu Guo, Xinyu Wang, Cong Wang, Baochun Li, and Xiaohua Jia, "EncKV: An Encrypted Key-value Store with Rich Queries", In the 12th ACM Asia Conference on Computer and Communications Security (AISACCS'17). [Link](https://www.google.ru/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjfiqy7p9nWAhUMIJoKHds3AVQQFggmMAA&url=http%3A%2F%2Fiqua.ece.toronto.edu%2Fpapers%2Fxyuan-asiaccs17.pdf&usg=AOvVaw2pBoA4qoNt41giSL6mAzYf)
 
 # REQUIREMENTS
 Recommended Environment: Ubuntu 16.04 LTS with gcc version 4.8.4.
@@ -57,7 +57,7 @@ Run some tests
 ./test.sh
 ```
 
-Stop EncKVnodes
+Stop EncKV nodes
 ```shell
 ./stop.sh
 ```
@@ -67,7 +67,7 @@ Stop EncKVnodes
 Log into shell
 
 ```shell
-docker run -it --rm --network enckv enckv basj
+docker run -it --rm --network enckv enckv bash
 cd encKV/Client
 ```
 
